@@ -1,0 +1,12 @@
+{
+	"title"		:	"[DarkRP] No Hunger when no Cook",
+	"type"		:	"gamemode",
+	"tags"		:	["roleplay"],
+	"ignore"	:
+	[
+		"*.disabled",
+		"*.jpg",
+		"*.png",
+		"*.cmd"
+	]
+}
