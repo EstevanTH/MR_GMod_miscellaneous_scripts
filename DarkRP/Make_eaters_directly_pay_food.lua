@@ -21,12 +21,14 @@ if SERVER then
 	
 	timer.Simple( 0, function()
 		local spawned_food = scripted_ents.GetStored( "spawned_food" ).t
-		local old_Use = spawned_food.Use
-		function spawned_food:Use( activator, caller, ... )
-			old_Use( self, activator, caller, ... )
-			local price = self:GetNWInt( "clientprice", 0 )
-			caller:addMoney( -price )
-			DarkRP.notify( caller, NOTIFY_GENERIC, 4, "Vous venez de payer "..price..GAMEMODE.Config.currency.." pour consommer ceci." )
+		if !spawned_food.UseEaterPay then
+			spawned_food.UseEaterPay = spawned_food.Use
+			function spawned_food:Use( activator, caller, ... )
+				self:UseEaterPay( activator, caller, ... )
+				local price = self:GetNWInt( "clientprice", 0 )
+				caller:addMoney( -price )
+				DarkRP.notify( caller, NOTIFY_GENERIC, 4, "Vous venez de payer "..price..GAMEMODE.Config.currency.." pour consommer ceci." )
+			end
 		end
 	end )
 end
