@@ -1,4 +1,4 @@
--- Save this script as: garrysmod/addons/darkrpmodification/lua/autorun/translate_weapon_names.lua
+-- Save this script as: garrysmod/addons/translate_weapon_names/lua/autorun/translate_weapon_names.lua
 
 hook.Add( "PreGamemodeLoaded", "translate_weapon_names", function()
 	local hl=GetConVar( "gmod_language" ):GetString()
